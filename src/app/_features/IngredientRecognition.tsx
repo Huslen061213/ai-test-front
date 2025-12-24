@@ -23,15 +23,18 @@ export const IngredientRecognition = () => {
     try {
       setIsGenerating(true);
 
-      const res = await fetch("http://localhost:999/ingredient-recognition", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt: text,
-        }),
-      });
+      const res = await fetch(
+        "https://ai-test-back.onrender.com/ingredient-recognition",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: text,
+          }),
+        }
+      );
 
       const data = await res.json();
       setResultText(data.text);

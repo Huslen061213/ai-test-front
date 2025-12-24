@@ -41,10 +41,13 @@ export const ImageAnalysis = () => {
     try {
       setLoading(true);
 
-      const res = await fetch("http://localhost:999/image-analysis", {
-        method: "POST",
-        body: formData,
-      });
+      const res = await fetch(
+        "https://ai-test-back.onrender.com/image-analysis",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const data = await res.json();
       setResultText(data.content);

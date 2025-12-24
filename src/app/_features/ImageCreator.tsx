@@ -23,15 +23,18 @@ export const ImageCreator = () => {
     try {
       setIsGenerating(true);
 
-      const res = await fetch("http://localhost:999/image-creator", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt: text,
-        }),
-      });
+      const res = await fetch(
+        "https://ai-test-back.onrender.com/image-creator",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: text,
+          }),
+        }
+      );
 
       const data = await res.json();
       setResultImage(data.image);
