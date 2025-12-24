@@ -1,12 +1,6 @@
 "use client";
-import {
-  useContext,
-  createContext,
-  ReactNode,
-  useState,
-  SetStateAction,
-  Dispatch,
-} from "react";
+import type { ReactNode } from "react";
+import { createContext, useContext, useState } from "react";
 // const HomeContext = createContext(null) //JS
 
 type HomeContextType = {
@@ -14,7 +8,6 @@ type HomeContextType = {
   handleChangeAnalysis: () => void;
   handleChangeRecognition: () => void;
   handleChangeCreator: () => void;
-  setActive: Dispatch<SetStateAction<string>>;
 };
 
 const HomeContext = createContext<HomeContextType | undefined>(undefined);
